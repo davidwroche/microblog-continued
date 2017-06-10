@@ -1,0 +1,97 @@
+h1{
+    color: gold;
+    font-family: "Sitka Heading";
+}
+
+h2{
+    color: steelblue;
+    font-family: 'Aref Ruqaa', serif;
+}
+span{
+    color: darkred;
+    font-weight: 900;
+    font-family: 'Aref Ruqaa', serif;
+}
+h3{
+    color:azure;
+}
+body{
+    background-color: darkolivegreen;
+}
+#bck{
+    background-color: #1b1c1d;
+}
+#hi{
+    background-color:#750F2D;
+}
+#side{
+    background-color:#750F2D;
+    margin:auto;
+}
+input[type='file']{
+    display: inline-block;
+    width: 20%;
+    padding: 50px 0 0 0;
+    height: 50px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url('https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_16-512.png') center center no-repeat #e4e4e4;
+    background-size: 150px 100px;
+}
+#st{
+    color: dodgerblue;
+    font-family: "Sitka Heading";
+}
+div.split{
+    width: 28%;
+    height: 100%;
+    /*position: absolute;*/
+    float:left;
+    display: none;
+
+
+
+}
+div.splitright{
+    width: 70%;
+    float:left;
+    background-color: white;
+    border-radius: 4px 4px 4px 4px;
+    display: none;
+
+}
+
+div.MSG{
+    display: none;
+}
+
+a {
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition:         transform .8s ease-in-out;
+}
+a:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+
+.flip {
+    height: 199px;
+    width: 200px;
+    margin: 0 auto;
+}
+.flip img {
+    width: 200px;
+    height: auto;
+}
+.flip .back {
+    background: #2184cd;
+    color: #fff;
+    text-align: center;
+}
+#soc{
+    font-size: 20px;
+}

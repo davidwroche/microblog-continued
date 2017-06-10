@@ -1,0 +1,38 @@
+<section class="ui container">
+{{> mainmenu _id="home" }}
+  <section id="hi" class="ui segment">
+      <div class="ui grid">
+  <aside class="three wide column">
+ <h3> Welcome back </h3><h1>{{user.firstName}} {{user.lastName}}</h1>
+    <div class="flip">
+      <div class="front">
+        <div class="ui card">
+        <div class="image">
+      <img id ="square" src="/getpicture" onerror="this.src='/images/blank.gif'"/>
+    </div>
+</div>
+        </div>
+        <div class="back">
+          <h4>Keep tweeting {{user.firstName}} {{user.lastName}}</h4>
+          <br>
+          <h4> Total Tweets</h4>
+          {{y}}
+        </div>
+
+      </div>
+  </aside>
+
+  <aside class="thirteen wide column">
+    {{> tweet }}
+  </aside>
+      </div>
+</section>
+  </section>
+
+<script>
+  $(function(){
+    $(".flip").flip({
+      trigger: 'hover'
+    });
+  });
+</script>

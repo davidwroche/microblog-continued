@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{title}}</title>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.js"></script>
+  <link rel="stylesheet" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
+<link rel="stylesheet" media="screen" href="css/main.css">
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+<section class="ui container">
+  <div id="bck1">
+  <img class="ui image" id="thisImg" src="/images/logo.png">
+    </div>
+  <div id="bck">
+  {{{content}}}
+  </div>
+</section>
+<script>
+  $(document).ready(function () {
+    $('.ui.dropdown').dropdown({ on: 'hover' });
+  });
+</script>
+</body>
+
+
+<script type="text/javascript">
+  $(function(){
+    //prepare Your data array with img urls
+    var dataArray=new Array();
+    dataArray[0]="/images/logo.png";
+    dataArray[1]="/images/2.jpg";
+    dataArray[2]="/images/3.png";
+    dataArray[3]="/images/4.jpg";
+
+    //start with id=0 after 5 seconds
+    var thisId=0;
+
+    window.setInterval(function(){
+      $('#thisImg').attr('src',dataArray[thisId]);
+      thisId++; //increment data array id
+      if (thisId==4) thisId=0; //repeat from start
+    },3000);
+  });
+
+
+  $("#bck")
+      .css("margin-left",-$(this).width())
+      .animate({
+        marginLeft:0
+      }, 700);
+
+
+  $("#bck1")
+      .css("margin-right",+$(this).width())
+      .animate({
+        marginRight:0
+      }, 2000);
+
+
+</script>

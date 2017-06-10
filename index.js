@@ -1,0 +1,70 @@
+'use strict';
+
+const Hapi = require('hapi');
+
+var server = new Hapi.Server();
+
+require('./app/models/db');
+
+// server.bind({
+//   // currentUser: {},
+//   users: {},
+//   donations: [],
+// });
+
+//server.connection({ host: '127.0.0.1', port: 4000 });
+server.connection({ port: process.env.PORT || 4000 });
+
+server.register([require('inert'), require('vision'), require('hapi-auth-cookie')], err => {
+
+  server.register({
+        register: require('disinfect'),
+        options: {
+          disinfectQuery: true,
+          disinfectParams: true,
+          disinfectPayload: true,
+        },
+      }, (err) => {
+
+        });
+
+  if (err) {
+    throw err;
+  }
+
+  server.views({
+    engines: {
+      hbs: require('handlebars'),
+    },
+    relativeTo: __dirname,
+    path: './app/views',
+    layoutPath: './app/views/layouts',
+    partialsPath: './app/views/partials',
+    layout: true,
+    isCached: false,
+  }),
+
+      server.auth.strategy('standard', 'cookie', {
+        password: 'secretpasswordnotrevealedtoanyone',
+        cookie: 'donation-cookie',
+        isSecure: false,
+        ttl: 24 * 60 * 60 * 1000,
+        redirectTo: '/login',
+      });
+
+  server.auth.default({
+    strategy: 'standard',
+  });
+
+  server.route(require('./routes'));
+  server.route(require('./routesapi'));
+
+  server.start((err) => {
+    if (err) {
+      throw err;
+    }
+
+    console.log('Server listening at:', server.info.uri);
+  });
+
+});
